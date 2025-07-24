@@ -4,7 +4,9 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT;
+
 const mongoConnection = process.env.MONGODB_URI;
+const frontend_domain = process.env.FRONTEND_DOMAIN
 
 const userRouter = require("./routes/user.router");
 const customerRouter = require("./routes/customer.router")
@@ -19,7 +21,7 @@ mongoose
   });
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: frontend_domain,
   optionSuccessStatus: 200,
 };
 
